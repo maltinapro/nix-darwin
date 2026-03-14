@@ -14,6 +14,5 @@
     NSGlobalDomain.KeyRepeat = 2;
   };
 
-  services.nix-daemon.enable = true;
-  system.stateVersion = "25.05";
+  system.stateVersion = 5;
 }

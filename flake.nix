@@ -13,6 +13,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs"; 
+    };
   };
 
   outputs = { self, nixpkgs, nix-darwin, home-manager, ... }@inputs:
@@ -47,7 +52,7 @@
 
       # 🏠 Private Mac Mini
       mac-mini-maltina = createMacConfig
-        "maltina"
+        "maltinabasse"
         [ ./hosts/private/darwin.nix ]
         [ ./hosts/private/home.nix   ];
 
