@@ -30,7 +30,7 @@
             home-manager.useUserPackages  = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.${username} = {
-              imports = [ ./home/modules ] ++ hmModules;
+              imports = [ ./home ] ++ hmModules;
             };
           }
         ] ++ darwinModules;
@@ -46,7 +46,7 @@
         [ ./hosts/work/home.nix   ];
 
       # 🏠 Private Mac Mini
-      mac-mini = createMacConfig
+      mac-mini-maltina = createMacConfig
         "maltina"
         [ ./hosts/private/darwin.nix ]
         [ ./hosts/private/home.nix   ];

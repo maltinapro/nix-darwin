@@ -7,7 +7,7 @@
 
   # macOS system defaults applied to all machines
   system.defaults = {
-    dock.autohide = true;
+    dock.autohide = false;
     finder.AppleShowAllExtensions = true;
     finder.FXPreferredViewStyle = "clmv"; # Column View
     NSGlobalDomain.AppleInterfaceStyle = "Dark";
@@ -15,5 +15,5 @@
   };
 
   services.nix-daemon.enable = true;
-  system.stateVersion = 5;
+  system.stateVersion = "25.05";
 }

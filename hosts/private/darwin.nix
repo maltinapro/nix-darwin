@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 {
-  networking.hostName      = "my-macbook";
-  networking.localHostName = "my-macbook";
+  networking.hostName      = "mac-mini-maltina";
+  networking.localHostName = "mac-mini-maltina";
 
-  users.users.maltina.home = "/Users/maltina";
+  users.users.maltina.home = "/Users/maltinabasse";
 
   homebrew = {
     enable = true;
@@ -15,8 +15,6 @@
     };
     casks = [
       "signal"
-      "firefox"
-      # add private apps here
     ];
   };
 }

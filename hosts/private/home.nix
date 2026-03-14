@@ -18,7 +18,7 @@
   programs.zsh.shellAliases = {
     gs      = "git status";
     vim     = "nvim";
-    rebuild = "darwin-rebuild switch --flake ~/.config/nix-darwin#my-macbook";
+    rebuild = "darwin-rebuild switch --flake ~/.config/nix-darwin#mac-mini";
   };
 
   # ── Private-specific packages ────────────────────────────────────────
