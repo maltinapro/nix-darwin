@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   networking.hostName      = "mac-mini-maltina";
   networking.localHostName = "mac-mini-maltina";
