@@ -7,6 +7,12 @@
     rustup
     git-lfs
   ];
+
+  home.sessionVariables = {
+    VISUAL = "code --wait";
+    EDITOR = "nvim";
+  };
+
   programs.git = {
     enable = true;
     ignores = [
