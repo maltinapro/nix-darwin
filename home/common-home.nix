@@ -24,6 +24,9 @@
     matchBlocks = {
       "*" = {
         addKeysToAgent = "yes";
+        extraOptions = {
+          "UseKeychain" = "yes"; 
+      };
       };
 
       "github-work" = {
