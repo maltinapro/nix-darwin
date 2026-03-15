@@ -1,3 +1,10 @@
+
+# Vscode config fix
+sudo nix run nix-darwin -- switch --impure --flake ~/.config/nix-darwin#mac-mini-maltina
+mv "~/Library/Application Support/Code/User/settings.json" "~/Library/Application Support/Code/User/settings.json.bak" 
+
+
+
 # macOS Setup with Lix + nix-darwin + Home Manager
 
 ## 🧩 Architecture: What manages what?

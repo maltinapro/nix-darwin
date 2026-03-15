@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   home.stateVersion = "25.05";
@@ -7,7 +7,6 @@
     rustup
     git-lfs
   ];
-
   programs.git = {
     enable = true;
     ignores = [
