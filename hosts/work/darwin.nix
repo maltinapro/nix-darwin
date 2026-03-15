@@ -14,9 +14,9 @@
       cleanup    = "zap";
     };
     casks = [
-      "signal"        # already installed – Homebrew will adopt it
+      "signal"
       "postman"
-      "intellij-ce" # already installed – Homebrew will adopt it
+      "intellij-ce"
     ];
   };
 }
