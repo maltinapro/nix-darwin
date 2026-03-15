@@ -3,6 +3,8 @@
 sudo nix run nix-darwin -- switch --impure --flake ~/.config/nix-darwin#mac-mini-maltina
 mv "~/Library/Application Support/Code/User/settings.json" "~/Library/Application Support/Code/User/settings.json.bak" 
 
+# commands
+sudo nix run nix-darwin -- switch --impure --flake ~/.config/nix-darwin#mac-mini-maltina
 
 
 # macOS Setup with Lix + nix-darwin + Home Manager

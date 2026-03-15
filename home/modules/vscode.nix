@@ -7,9 +7,9 @@
     profiles.default = {
       userSettings = {
         "files.autoSave" = "onFocusChange"; 
-        "editor.fontSize" = 14;
+        "editor.fontSize" = 12;
 
-        "terminal.integrated.fontSize" = 14;
+        "terminal.integrated.fontSize" = 12;
 
         "editor.fontFamily" = "JetBrainsMono Nerd Font, JetBrainsMono NF, monospace";
         "editor.fontLigatures" = true;
