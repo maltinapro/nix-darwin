@@ -29,7 +29,7 @@
   programs.zsh.shellAliases = {
     gs      = "git status";
     vim     = "nvim";
-    rebuild = "darwin-rebuild switch --flake ~/.config/nix-darwin#asset-01142";
+    rebuild = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#asset-01142";
   };
 
   home.packages = with pkgs; [

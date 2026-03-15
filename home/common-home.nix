@@ -9,7 +9,7 @@
   ];
 
   home.sessionVariables = {
-    VISUAL = "code --wait";
+    VISUAL = "nvim";
     EDITOR = "nvim";
   };
 

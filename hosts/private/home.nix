@@ -23,7 +23,7 @@
   programs.zsh.shellAliases = {
     gs      = "git status";
     vim     = "nvim";
-    rebuild = "darwin-rebuild switch --flake ~/.config/nix-darwin#mac-mini";
+    rebuild = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#mac-mini-maltina";
   };
   
   home.packages = with pkgs; [
