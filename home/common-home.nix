@@ -3,27 +3,35 @@
 {
   home.stateVersion = "25.05";
 
-  # ── Packages on all machines ─────────────────────────────────────────
   home.packages = with pkgs; [
     rustup
     git-lfs
   ];
 
+  programs.git = {
+    enable = true;
+    ignores = [
+      "tmp"
+      ".idea"
+      ".DS_Store"
+    ];
+  };
 
-  # ── SSH ─────────────────────────────────────────────────────────────
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    enableDefaultConfig = false;
 
     matchBlocks = {
-      # 💼 Work GitHub account
+      "*" = {
+        addKeysToAgent = "yes";
+      };
+
       "github-work" = {
         hostname = "github.com";
         user     = "git";
         identityFile = "~/.ssh/id_ed25519_work";
       };
 
-      # 🏠 Private GitHub account
       "github-private" = {
         hostname = "github.com";
         user     = "git";
@@ -31,10 +39,4 @@
       };
     };
   };
-
-  # ── Global .gitignore ────────────────────────────────────────────────
-  home.file.".gitignore".text = ''
-   tmp
-  .idea
-  '';
 }

@@ -23,8 +23,14 @@
   outputs = { self, nixpkgs, nix-darwin, home-manager, ... }@inputs:
   let
 
+  pkgs = import nixpkgs {
+    system = "aarch64-darwin";
+    config.allowUnfree = true;
+  };
+
     createMacConfig = username: darwinModules: hmModules:
       nix-darwin.lib.darwinSystem {
+        inherit pkgs;
         system = "aarch64-darwin";
         specialArgs = { inherit inputs; };
         modules = [
@@ -35,6 +41,8 @@
             home-manager.useUserPackages  = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.${username} = {
+              home.username = username;
+              home.homeDirectory = "/Users/${username}";
               imports = [ ./home ] ++ hmModules;
             };
           }

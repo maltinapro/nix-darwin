@@ -4,13 +4,14 @@
   networking.hostName      = "mac-mini-maltina";
   networking.localHostName = "mac-mini-maltina";
 
-  users.users.maltina.home = "/Users/maltinabasse";
+  system.primaryUser = "maltinabasse";
+  users.users.maltinabasse.home = "/Users/maltinabasse";
 
   homebrew = {
     enable = true;
     onActivation = {
       autoUpdate = true;
-      upgrade    = false;
+      upgrade    = true;
       cleanup    = "zap";
     };
     casks = [
