@@ -4,6 +4,7 @@
   networking.hostName      = "asset-01142";
   networking.localHostName = "asset-01142";
 
+  system.primaryUser = "basse";
   users.users.basse.home = "/Users/basse";
 
   homebrew = {
@@ -16,7 +17,6 @@
     casks = [
       "signal"
       "postman"
-      "intellij-ce"
     ];
   };
 }

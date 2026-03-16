@@ -1,5 +1,9 @@
 
 # Vscode config fix
+
+
+nix run nix-darwin -- switch --flake ~/.config/nix-darwin#asset-01142 --sudo
+
 sudo nix run nix-darwin -- switch --impure --flake ~/.config/nix-darwin#mac-mini-maltina
 mv "~/Library/Application Support/Code/User/settings.json" "~/Library/Application Support/Code/User/settings.json.bak" 
 
