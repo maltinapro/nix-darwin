@@ -5,6 +5,7 @@
 
   home.packages = with pkgs; [
     rustup
+    libiconv
     git-lfs
   ];
 
