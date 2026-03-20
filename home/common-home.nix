@@ -7,6 +7,7 @@
     rustup
     libiconv
     git-lfs
+    gh
   ];
 
   home.sessionVariables = {
