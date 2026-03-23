@@ -17,6 +17,7 @@
     casks = [
       "signal"
       "postman"
+      "dbeaver-community"
     ];
   };
 }
