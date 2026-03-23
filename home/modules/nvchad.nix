@@ -8,6 +8,26 @@
 
   programs.nvchad = {
     enable = true;
+    
+    extraPlugins = ''
+      return {
+        {
+          "MeanderingProgrammer/render-markdown.nvim",
+          dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+          ft = { "markdown" },
+          opts = {
+            heading  = { enabled = true },
+            code     = { enabled = true },
+            dash     = { enabled = true },
+            bullet   = { enabled = true },
+            checkbox = { enabled = true },
+            table    = { enabled = true },
+            link     = { enabled = true },
+          },
+        },
+      }
+    '';
+
     extraConfig = ''
       -- Protect terminal window from being overwritten
       vim.api.nvim_create_autocmd("TermOpen", {
