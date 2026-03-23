@@ -1,11 +1,59 @@
 
 # Vscode config fix
 
+darwin-rebuild switch --flake ~/.config/nix-darwin#asset-01142
 
 sudo nix run nix-darwin -- switch --flake ~/.config/nix-darwin#asset-01142
 
 sudo nix run nix-darwin -- switch --impure --flake ~/.config/nix-darwin#mac-mini-maltina
 mv "~/Library/Application Support/Code/User/settings.json" "~/Library/Application Support/Code/User/settings.json.bak" 
+
+
+
+# `darwin-rebuild switch` vs `nix run nix-darwin -- switch`
+
+Great question! Here's the difference:
+
+---
+
+## `darwin-rebuild switch --flake ...`
+- Uses the **already-installed** `darwin-rebuild` binary on your system
+- **Faster** — no need to fetch anything
+- Used for **day-to-day rebuilds** after nix-darwin is set up
+- Requires nix-darwin to already be installed and working
+
+---
+
+## `nix run nix-darwin -- switch --flake ...`
+- **Downloads and runs** nix-darwin directly from the flake input, without needing it pre-installed
+- **Slower** — fetches nix-darwin if not cached
+- Used for **bootstrapping** — i.e. the very first time you set up nix-darwin on a new machine, before `darwin-rebuild` even exists on your PATH
+- Useful if your `darwin-rebuild` binary is broken or out of sync
+
+---
+
+## TL;DR
+
+| | `darwin-rebuild switch` | `nix run nix-darwin -- switch` |
+|---|---|---|
+| **Speed** | ⚡ Fast | 🐢 Slower |
+| **Use case** | Everyday rebuilds | First-time bootstrap |
+| **Requires nix-darwin installed** | ✅ Yes | ❌ No |
+| **Fetches nix-darwin** | ❌ No | ✅ Yes (if not cached) |
+
+---
+
+## Recommendation
+
+In your day-to-day workflow, always use:
+
+```bash
+darwin-rebuild switch --flake ~/.config/nix-darwin#asset-01142
+```
+
+Reserve `nix run nix-darwin -- switch` for when you're setting up a **brand new Mac** from scratch.
+
+> **Note:** Both commands generally don't need `sudo` unless you're running into permissions issues.
 
 # commands
 sudo nix run nix-darwin -- switch --impure --flake ~/.config/nix-darwin#mac-mini-maltina
