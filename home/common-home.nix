@@ -9,6 +9,7 @@
     git-lfs
     gh
     glow
+    imgcat
   ];
 
   home.sessionVariables = {
