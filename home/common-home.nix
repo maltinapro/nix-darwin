@@ -8,6 +8,7 @@
     libiconv
     git-lfs
     gh
+    glow
   ];
 
   home.sessionVariables = {
