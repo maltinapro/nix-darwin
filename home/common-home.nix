@@ -8,7 +8,6 @@
     libiconv
     git-lfs
     gh
-    glow
     imgcat
   ];
 

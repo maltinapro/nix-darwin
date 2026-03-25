@@ -14,5 +14,9 @@
     NSGlobalDomain.KeyRepeat = 2;
   };
 
+  homebrew.casks = [
+    "macdown" # GUI markdown previewer with live preview and image rendering
+  ];
+
   system.stateVersion = 5;
 }
