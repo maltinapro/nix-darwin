@@ -35,6 +35,14 @@
           vim.wo.winfixbuf = true
         end,
       })
+
+      -- System-wide clipboard integration (Cmd+C / Cmd+V)
+      vim.opt.clipboard = "unnamedplus"
+
+      vim.keymap.set({ "n", "v" }, "<D-c>", '"+y', { desc = "Copy to system clipboard" })
+      vim.keymap.set("n", "<D-v>", '"+p', { desc = "Paste from system clipboard" })
+      vim.keymap.set("v", "<D-v>", '"+P', { desc = "Paste from system clipboard" })
+      vim.keymap.set("i", "<D-v>", "<C-r><C-o>+", { desc = "Paste from system clipboard" })
     '';
     extraPackages = with pkgs; [
       # --- Rust Essentials ---
