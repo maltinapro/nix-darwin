@@ -28,7 +28,7 @@
         {
           "3rd/image.nvim",
           build = false, -- Nix provides imagemagick and magick lua bindings; no build step needed
-          ft = { "markdown" },
+          event = "VeryLazy", -- load early enough so nvim-tree integration is active
           opts = {
             backend = "kitty",
             integrations = {
@@ -38,6 +38,10 @@
                 download_remote_images = true,
                 only_render_image_at_cursor = false,
                 filetypes = { "markdown" },
+              },
+              nvim_tree = {
+                enabled = true,
+                clear_in_insert_mode = true, -- hide preview when entering insert mode (intentional; differs from markdown which keeps images visible while editing)
               },
             },
             max_height_window_percentage = 50,
@@ -58,6 +62,25 @@
       -- Use the system clipboard for all yank/paste operations.
       -- On macOS, Neovim auto-detects pbcopy/pbpaste automatically.
       vim.opt.clipboard = "unnamedplus"
+
+      -- Render image files (png/jpg/gif/webp/avif) inline when opened in a buffer.
+      -- image.nvim handles the actual rendering; this autocmd ensures it is
+      -- triggered for image filetypes that are not markdown (e.g. opened from nvim-tree).
+      vim.api.nvim_create_autocmd("BufEnter", {
+        pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" },
+        callback = function()
+          local ok, image = pcall(require, "image")
+          if not ok then return end
+          -- Clear any previously rendered image to avoid stale/duplicate renders
+          -- when navigating between image files.
+          image.clear()
+          local buf = vim.api.nvim_get_current_buf()
+          local filepath = vim.api.nvim_buf_get_name(buf)
+          if filepath ~= "" then
+            image.from_file(filepath, { window = vim.api.nvim_get_current_win() }):render()
+          end
+        end,
+      })
     '';
     extraPackages = with pkgs; [
       # --- Rust Essentials ---
