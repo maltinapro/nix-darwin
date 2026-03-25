@@ -25,6 +25,23 @@
             link     = { enabled = true },
           },
         },
+        {
+          "nvim-treesitter/nvim-treesitter",
+          opts = {
+            ensure_installed = {
+              "bash",
+              "java",
+              "json",
+              "lua",
+              "markdown",
+              "markdown_inline",
+              "python",
+              "rust",
+              "toml",
+              "yaml",
+            },
+          },
+        },
       }
     '';
 
