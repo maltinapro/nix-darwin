@@ -25,6 +25,25 @@
             link     = { enabled = true },
           },
         },
+        {
+          "3rd/image.nvim",
+          build = false, -- Nix provides imagemagick and magick lua bindings; no build step needed
+          ft = { "markdown" },
+          opts = {
+            backend = "kitty",
+            integrations = {
+              markdown = {
+                enabled = true,
+                clear_in_insert_mode = false,
+                download_remote_images = true,
+                only_render_image_at_cursor = false,
+                filetypes = { "markdown" },
+              },
+            },
+            max_height_window_percentage = 50,
+            kitty_method = "normal",
+          },
+        },
       }
     '';
 
@@ -58,6 +77,10 @@
       
       # --- Debugging ---
       lldb               # Debugger (works great with Rust)
+
+      # --- Image Viewing ---
+      imagemagick                # Image processing library required by image.nvim
+      luajitPackages.magick      # Lua bindings for ImageMagick (used by image.nvim)
     ];
   };
 }
