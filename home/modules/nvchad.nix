@@ -36,17 +36,8 @@
         end,
       })
 
-      -- System clipboard integration via pbcopy/pbpaste.
-      -- Pin the absolute paths so they are found even in a Nix-managed environment.
-      -- With clipboard=unnamedplus every yank/paste automatically uses the system
-      -- clipboard; no extra keymaps are needed.
-      vim.g.clipboard = {
-        name  = "macOS-clipboard",
-        copy  = { ["+"] = "/usr/bin/pbcopy",  ["*"] = "/usr/bin/pbcopy"  },
-        paste = { ["+"] = "/usr/bin/pbpaste", ["*"] = "/usr/bin/pbpaste" },
-        cache_enabled = 0,
-      }
-
+      -- Use the system clipboard for all yank/paste operations.
+      -- On macOS, Neovim auto-detects pbcopy/pbpaste automatically.
       vim.opt.clipboard = "unnamedplus"
     '';
     extraPackages = with pkgs; [
