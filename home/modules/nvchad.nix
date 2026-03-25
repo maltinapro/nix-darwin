@@ -37,6 +37,15 @@
       })
 
       -- System-wide clipboard integration (Cmd+C / Cmd+V)
+      -- Explicitly configure macOS clipboard provider so pbcopy/pbpaste are found
+      -- even when running inside a Nix-managed environment where PATH may differ.
+      vim.g.clipboard = {
+        name  = "macOS-clipboard",
+        copy  = { ["+"] = "/usr/bin/pbcopy",  ["*"] = "/usr/bin/pbcopy"  },
+        paste = { ["+"] = "/usr/bin/pbpaste", ["*"] = "/usr/bin/pbpaste" },
+        cache_enabled = 0,
+      }
+
       vim.opt.clipboard = "unnamedplus"
 
       vim.keymap.set({ "n", "v" }, "<D-c>", '"+y', { desc = "Copy to system clipboard" })
