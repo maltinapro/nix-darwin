@@ -15,7 +15,7 @@
   };
 
   homebrew.casks = [
-    "macdown" # GUI markdown previewer with live preview and image rendering
+    "qlmarkdown" # QuickLook plugin: preview markdown files (with images) by pressing Space in Finder
   ];
 
   system.stateVersion = 5;
