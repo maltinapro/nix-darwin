@@ -15,4 +15,10 @@
   };
 
   system.stateVersion = 5;
+
+  # Common Homebrew packages for all machines
+  homebrew = {
+    taps = [ "xykong/tap" ];
+    casks = [ "xykong/tap/flux-markdown" ];
+  };
 }
