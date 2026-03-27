@@ -39,6 +39,12 @@
       -- Use the system clipboard for all yank/paste operations.
       -- On macOS, Neovim auto-detects pbcopy/pbpaste automatically.
       vim.opt.clipboard = "unnamedplus"
+
+      -- Fix file watchers (e.g. fluxMarkdown) losing track of the file after the first save.
+      -- Neovim's default atomic save renames a temp file over the original, which changes
+      -- the inode and breaks inode-based watchers on macOS. Setting backupcopy = "yes"
+      -- makes Neovim write directly into the existing file instead, keeping the inode stable.
+      vim.opt.backupcopy = "yes"
     '';
     extraPackages = with pkgs; [
       # --- Rust Essentials ---
