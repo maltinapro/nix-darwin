@@ -29,6 +29,9 @@ darwin-rebuild switch --flake ~/.config/nix-darwin
 # Or explicitly:
 darwin-rebuild switch --flake ~/.config/nix-darwin#asset-01142
 
+# Or use the alias:
+rebuild
+
 # Update all inputs to their latest versions:
 nix flake update ~/.config/nix-darwin
 darwin-rebuild switch --flake ~/.config/nix-darwin
