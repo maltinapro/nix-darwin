@@ -30,9 +30,12 @@
     gs      = "git status";
     vim     = "nvim";
     rebuild = "sudo darwin-rebuild switch --flake ~/.config/nix-darwin#asset-01142";
+    k       = "kubectl";
   };
 
   home.packages = with pkgs; [
-    # add work-only CLI tools here
+    kubectl
+    azure-cli
+    kubectx  # provides both kubectx and kubens
   ];
 }
