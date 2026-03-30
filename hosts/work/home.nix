@@ -37,5 +37,6 @@
     kubectl
     azure-cli
     kubectx  # provides both kubectx and kubens
+    kubelogin
   ];
 }
