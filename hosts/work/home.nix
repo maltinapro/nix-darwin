@@ -38,6 +38,7 @@
     azure-cli
     kubectx  # provides both kubectx and kubens
     kubelogin
-    stern    # aggregated pod log tailing
+    stern      # aggregated pod log tailing
+    sqlfluff   # SQL linter and formatter
   ];
 }
