@@ -40,5 +40,7 @@
     kubelogin
     stern      # aggregated pod log tailing
     sqlfluff   # SQL linter and formatter
+    docker-compose
+    lazydocker
   ];
 }
