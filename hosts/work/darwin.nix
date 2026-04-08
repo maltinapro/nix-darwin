@@ -18,7 +18,7 @@
       "signal"
       "postman"
       "dbeaver-community"
-      "docker"
+      "docker-desktop"
     ];
   };
 }
