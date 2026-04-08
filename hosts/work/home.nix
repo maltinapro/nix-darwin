@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.git = {
@@ -43,4 +43,19 @@
     docker-compose
     lazydocker
   ];
+
+  # Install SDKMAN if not already present
+  home.activation.installSdkman = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    if [ ! -d "$HOME/.sdkman" ]; then
+      $DRY_RUN_CMD ${pkgs.curl}/bin/curl -s "https://get.sdkman.io" -o /tmp/sdkman-install.sh
+      $DRY_RUN_CMD ${pkgs.bash}/bin/bash /tmp/sdkman-install.sh
+      $DRY_RUN_CMD rm -f /tmp/sdkman-install.sh
+    fi
+  '';
+
+  # Initialize SDKMAN in every zsh session
+  programs.zsh.initContent = ''
+    export SDKMAN_DIR="$HOME/.sdkman"
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+  '';
 }
