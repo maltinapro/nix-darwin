@@ -1,6 +1,11 @@
 { pkgs, lib, ... }:
 
 {
+  # Azure AD B2C extension for VS Code (work-specific)
+  programs.vscode.profiles.default.extensions = [
+    pkgs.vscode-marketplace.azureadb2ctools.aadb2c
+  ];
+
   programs.git = {
     enable = true;
     
