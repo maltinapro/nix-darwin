@@ -3,14 +3,7 @@
 {
   # Azure AD B2C extension for VS Code (work-specific)
   programs.vscode.profiles.default.extensions = [
-    (pkgs.vscode-utils.extensionFromVscodeMarketplace {
-      name = "aadb2c";
-      publisher = "AzureADB2CTools";
-      version = "1.3.4";
-      # TODO: Replace with the correct hash on first build.
-      # Run `darwin-rebuild switch` and Nix will output the expected hash.
-      sha256 = lib.fakeHash;
-    })
+    pkgs.vscode-marketplace.azureadb2ctools.aadb2c
   ];
 
   programs.git = {

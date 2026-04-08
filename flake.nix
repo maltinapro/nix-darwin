@@ -18,14 +18,22 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs"; 
     };
+
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, nix-vscode-extensions, ... }@inputs:
   let
 
   pkgs = import nixpkgs {
     system = "aarch64-darwin";
     config.allowUnfree = true;
+    overlays = [
+      nix-vscode-extensions.overlays.default
+    ];
   };
 
     createMacConfig = username: darwinModules: hmModules:
