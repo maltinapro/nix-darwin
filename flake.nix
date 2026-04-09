@@ -73,5 +73,19 @@
         [ ./hosts/private/home.nix   ];
 
     };
+
+    # 📝 Markdown lint & format shell
+    devShells.aarch64-darwin.markdown = pkgs.mkShell {
+      packages = with pkgs; [
+        markdownlint-cli2
+        mdformat
+      ];
+
+      shellHook = ''
+        echo "📝 Markdown tools available:"
+        echo "  markdownlint-cli2  – lint markdown files"
+        echo "  mdformat           – format markdown files"
+      '';
+    };
   };
 }
