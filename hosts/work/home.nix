@@ -47,6 +47,7 @@
     sqlfluff   # SQL linter and formatter
     docker-compose
     lazydocker
+    fluxcd
   ];
 
   # Install SDKMAN if not already present
