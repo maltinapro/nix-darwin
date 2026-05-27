@@ -28,24 +28,23 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
-      "*" = {
-        addKeysToAgent = "yes";
-        extraOptions = {
-          "UseKeychain" = "yes"; 
-      };
-      };
-
-      "github-work" = {
-        hostname = "github.com";
-        user     = "git";
-        identityFile = "~/.ssh/id_ed25519_work";
+    settings = {
+      # global defaults (was "*")
+      "Host *" = {
+        AddKeysToAgent = "yes";
+        UseKeychain = "yes";
       };
 
-      "github-private" = {
-        hostname = "github.com";
-        user     = "git";
-        identityFile = "~/.ssh/id_ed25519_private";
+      "Host github-work" = {
+        HostName = "github.com";
+        User = "git";
+        IdentityFile = "~/.ssh/id_ed25519_work";
+      };
+
+      "Host github-private" = {
+        HostName = "github.com";
+        User = "git";
+        IdentityFile = "~/.ssh/id_ed25519_private";
       };
     };
   };
