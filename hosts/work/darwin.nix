@@ -10,9 +10,10 @@
   homebrew = {
     enable = true;
     onActivation = {
-      autoUpdate = true;
-      upgrade    = false;
-      cleanup    = "zap";
+      autoUpdate  = true;
+      upgrade     = false;
+      cleanup     = "zap";
+      extraFlags  = [ "--force" ];
     };
     casks = [
       "signal"
