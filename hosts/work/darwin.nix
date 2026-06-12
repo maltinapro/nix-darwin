@@ -15,6 +15,12 @@
       cleanup     = "zap";
       extraFlags  = [ "--force" ];
     };
+    taps = [
+      "quarkusio/tap"
+    ];
+    brews = [
+      "quarkus"
+    ];
     casks = [
       "signal"
       "postman"
