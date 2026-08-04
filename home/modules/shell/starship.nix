@@ -9,12 +9,12 @@
       };
 
       git_status = {
-        format = "([\$all_status$ahead_behind\]($style) )";
+        format = "([$all_status$ahead_behind]($style) )";
         modified = "󰇂 ";
-        ahead = " $\{count}";
+        ahead = " \${count}";
         conflicted = "󱚝 ";
-        behind = " $\{count}";
-        diverged = "󰹺   $\{ahead_count}  $\{behind_count}";
+        behind = " \${count}";
+        diverged = "󰹺   \${ahead_count}  \${behind_count}";
         up_to_date = " ";
         deleted = "󰮉 ";
         untracked = "󱚠 ";
@@ -25,4 +25,3 @@
     };
   };
 }
-

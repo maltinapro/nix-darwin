@@ -16,7 +16,7 @@
 
     nvchad = {
       url = "github:nix-community/nix4nvchad";
-      inputs.nixpkgs.follows = "nixpkgs"; 
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-vscode-extensions = {
@@ -47,6 +47,7 @@
           {
             home-manager.useGlobalPkgs    = true;
             home-manager.useUserPackages  = true;
+            home-manager.backupFileExtension = "backup";
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.${username} = {
               home.username = username;

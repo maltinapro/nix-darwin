@@ -3,12 +3,12 @@
 {
   imports = [
     # This uses the 'nvchad' input from your flake.nix
-    inputs.nvchad.homeManagerModule 
+    inputs.nvchad.homeManagerModules.default
   ];
 
   programs.nvchad = {
     enable = true;
-    
+
     extraPlugins = ''
       return {
         {
@@ -53,15 +53,15 @@
       clippy             # Catches common mistakes (the Rust "Linter")
       cargo              # Package manager
       rustc              # The compiler
-      
+
       # --- NvChad / Neovim Essentials ---
       ripgrep            # Required for NvChad's "Telescope" search
       fd                 # Fast file finder
       gcc                # Needed for compiling some Neovim plugins (Treesitter)
-      
+
       # --- Version Control ---
       git                # Required for Git status, branches, and Gitsigns
-      
+
       # --- Debugging ---
       lldb               # Debugger (works great with Rust)
     ];

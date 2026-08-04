@@ -2,8 +2,8 @@
 
 {
   programs.vscode = {
-    enable = true;
-   
+    enable = false;
+
     profiles.default = {
       userSettings = {
         "files.autoSave" = "onFocusChange"; 
