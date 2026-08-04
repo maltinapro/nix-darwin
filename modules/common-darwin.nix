@@ -16,9 +16,19 @@
 
   system.stateVersion = 5;
 
+  environment.systemPath = [
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+  ];
+
   # Common Homebrew packages for all machines
   homebrew = {
-    taps = [ "xykong/tap" ];
+    taps = [
+      {
+        name = "xykong/tap";
+        trusted = true;
+      }
+    ];
     casks = [ "xykong/tap/flux-markdown" ];
   };
 }

@@ -16,10 +16,18 @@
       extraFlags  = [ "--force" ];
     };
     taps = [
-      "quarkusio/tap"
+      {
+        name = "hashicorp/tap";
+        trusted = true;
+      }
+      {
+        name = "quarkusio/tap";
+        trusted = true;
+      }
     ];
     brews = [
       "quarkus"
+      "hashicorp/tap/terraform"
     ];
     casks = [
       "signal"
