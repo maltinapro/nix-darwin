@@ -26,6 +26,7 @@
       }
     ];
     brews = [
+      "helm"
       "quarkus"
       "hashicorp/tap/terraform"
     ];
