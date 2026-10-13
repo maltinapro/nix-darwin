@@ -21,6 +21,13 @@
     "/opt/homebrew/sbin"
   ];
 
+  # Shared CLI tools installed system-wide on all hosts.
+  environment.systemPackages = with pkgs; [
+    ripgrep
+    fd
+    lazygit
+  ];
+
   # Common Homebrew packages for all machines
   homebrew = {
     taps = [

@@ -9,26 +9,45 @@
   programs.nvchad = {
     enable = true;
 
+    # Keep plugin definitions in NvChad-style custom Lua files.
     extraPlugins = ''
-      return {
-        {
-          "MeanderingProgrammer/render-markdown.nvim",
-          dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-          ft = { "markdown" },
-          opts = {
-            heading  = { enabled = true },
-            code     = { enabled = true },
-            dash     = { enabled = true },
-            bullet   = { enabled = true },
-            checkbox = { enabled = true },
-            table    = { enabled = true },
-            link     = { enabled = true },
-          },
-        },
-      }
+      return require("custom.plugins")
     '';
 
     extraConfig = ''
+      require("custom.configs.copilotchat")
+      require("custom.mappings")
+
+      -- Prefer fd and ripgrep explicitly for Telescope finders/grep.
+      pcall(function()
+        require("telescope").setup {
+          defaults = {
+            vimgrep_arguments = {
+              "rg",
+              "--color=never",
+              "--no-heading",
+              "--with-filename",
+              "--line-number",
+              "--column",
+              "--smart-case",
+            },
+          },
+          pickers = {
+            find_files = {
+              find_command = {
+                "fd",
+                "--type",
+                "f",
+                "--hidden",
+                "--follow",
+                "--exclude",
+                ".git",
+              },
+            },
+          },
+        }
+      end)
+
       -- Protect terminal window from being overwritten
       vim.api.nvim_create_autocmd("TermOpen", {
         callback = function()
@@ -55,9 +74,8 @@
       rustc              # The compiler
 
       # --- NvChad / Neovim Essentials ---
-      ripgrep            # Required for NvChad's "Telescope" search
-      fd                 # Fast file finder
       gcc                # Needed for compiling some Neovim plugins (Treesitter)
+      nodejs             # Required by Copilot language server/client
 
       # --- Version Control ---
       git                # Required for Git status, branches, and Gitsigns
@@ -66,4 +84,9 @@
       lldb               # Debugger (works great with Rust)
     ];
   };
+
+  home.file.".config/nvim/lua/custom/plugins.lua".source = ./nvchad/custom/plugins.lua;
+  home.file.".config/nvim/lua/custom/mappings.lua".source = ./nvchad/custom/mappings.lua;
+  home.file.".config/nvim/lua/custom/configs/copilotchat.lua".source = ./nvchad/custom/configs/copilotchat.lua;
+  home.file.".config/nvim/lua/custom/configs/copilotchat_tools.lua".source = ./nvchad/custom/configs/copilotchat_tools.lua;
 }
