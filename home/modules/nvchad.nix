@@ -73,6 +73,10 @@
       cargo              # Package manager
       rustc              # The compiler
 
+      # --- Java Essentials ---
+      jdk21              # Java toolchain for language features and builds
+      jdt-language-server # Java language server (`jdtls`)
+
       # --- NvChad / Neovim Essentials ---
       # Use Apple's system clang toolchain on macOS for native plugin builds.
       gnumake            # Needed to build avante.nvim (`make`)
@@ -93,4 +97,5 @@
   home.file.".config/nvim/lua/custom/configs/avante.lua".source = ./nvchad/custom/configs/avante.lua;
   home.file.".config/nvim/lua/custom/configs/copilotchat.lua".source = ./nvchad/custom/configs/copilotchat.lua;
   home.file.".config/nvim/lua/custom/configs/copilotchat_tools.lua".source = ./nvchad/custom/configs/copilotchat_tools.lua;
+  home.file.".config/nvim/ftplugin/java.lua".source = ./nvchad/custom/ftplugin/java.lua;
 }
