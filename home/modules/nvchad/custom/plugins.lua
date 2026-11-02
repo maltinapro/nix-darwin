@@ -59,6 +59,18 @@ return {
 
         if vim.loop.os_uname().sysname == "Darwin" and vim.fn.executable("xcrun") == 1 then
           local sdkroot = vim.fn.trim(vim.fn.system("xcrun --show-sdk-path"))
+          local clang = vim.fn.trim(vim.fn.system("xcrun -f clang"))
+          local clangxx = vim.fn.trim(vim.fn.system("xcrun -f clang++"))
+
+          if clang ~= "" then
+            vim.env.CC = clang
+            vim.env.HOST_CC = clang
+          end
+
+          if clangxx ~= "" then
+            vim.env.CXX = clangxx
+            vim.env.HOST_CXX = clangxx
+          end
 
           if sdkroot ~= "" then
             vim.env.SDKROOT = sdkroot
