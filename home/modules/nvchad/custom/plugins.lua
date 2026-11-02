@@ -56,6 +56,18 @@ return {
       -- but compiling the Rust libraries with cargo takes several minutes.
       function()
         require("lazy.core.config").options.git.timeout = 1800
+
+        if vim.loop.os_uname().sysname == "Darwin" and vim.fn.executable("xcrun") == 1 then
+          local sdkroot = vim.fn.trim(vim.fn.system("xcrun --show-sdk-path"))
+
+          if sdkroot ~= "" then
+            vim.env.SDKROOT = sdkroot
+            vim.env.LIBRARY_PATH = sdkroot .. "/usr/lib"
+              .. (vim.env.LIBRARY_PATH and (":" .. vim.env.LIBRARY_PATH) or "")
+            vim.env.CPATH = sdkroot .. "/usr/include"
+              .. (vim.env.CPATH and (":" .. vim.env.CPATH) or "")
+          end
+        end
       end,
       "make",
     },
