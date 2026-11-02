@@ -74,7 +74,7 @@
       rustc              # The compiler
 
       # --- NvChad / Neovim Essentials ---
-      gcc                # Needed for compiling some Neovim plugins (Treesitter)
+      # Use Apple's system clang toolchain on macOS for native plugin builds.
       gnumake            # Needed to build avante.nvim (`make`)
       perl               # Needed by avante.nvim's vendored OpenSSL build
       nodejs             # Runs the Copilot language server (copilot.lua, Node.js >= 22)
