@@ -26,12 +26,12 @@
       }
     ];
     brews = [
-      "azure-cli"
       "helm"
       "quarkus"
       "hashicorp/tap/terraform"
     ];
     casks = [
+      "azure-cli"
       "signal"
       "postman"
       "dbeaver-community"
