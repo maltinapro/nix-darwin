@@ -68,6 +68,22 @@ Useful Copilot Chat commands:
 :CopilotChatStrictMode on
 ```
 
+## Java in Neovim (LSP completion like IntelliJ)
+
+This config now installs `jdtls` (Eclipse Java language server) and auto-starts it
+for `.java` files via `nvim-jdtls`.
+
+After rebuilding, open a Java file inside a project root (`pom.xml`, `build.gradle`,
+or `.git`) and run:
+
+```vim
+:checkhealth vim.lsp
+:lua print(vim.inspect(vim.lsp.get_clients({ bufnr = 0 })))
+```
+
+You should see a `jdtls` client attached. Dot-completion (`variable.`) only works
+when the file is inside a detected Java project root.
+
 Avante (`avante.nvim`) runs alongside Copilot Chat with `provider = "copilot"`. It reuses the login from `:Copilot auth`: since copilot.lua 3.0 the language server keeps that login in `~/.config/github-copilot/auth.db` instead of `hosts.json`/`apps.json`, which is the only place Avante itself looks. `custom/configs/avante.lua` therefore reads the token from `auth.db` (with `sqlite3`, installed via `extraPackages`) and hands it to Avante. If that is not possible it falls back to the login Copilot Chat caches (`:CopilotChatModels` signs in) and finally to Avante's own lookup of a legacy `hosts.json`/`apps.json`. Restart Neovim after logging in; without any login Avante shows a warning instead of starting.
 
 > **Note:** `custom/configs/avante.lua` is a workaround for the open Avante issues [#3170](https://github.com/avante-corp/avante.nvim/issues/3170) and [#3121](https://github.com/avante-corp/avante.nvim/issues/3121). Once Avante reads `auth.db` itself, the helper (and `sqlite` in `extraPackages`) can be removed.

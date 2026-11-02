@@ -48,6 +48,13 @@ return {
     },
   },
   {
+    "mfussenegger/nvim-jdtls",
+    ft = { "java" },
+    dependencies = {
+      "neovim/nvim-lspconfig",
+    },
+  },
+  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     version = false,
