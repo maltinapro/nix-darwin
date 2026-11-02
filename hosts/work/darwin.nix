@@ -26,6 +26,7 @@
       }
     ];
     brews = [
+      "azure-cli"
       "helm"
       "quarkus"
       "hashicorp/tap/terraform"
