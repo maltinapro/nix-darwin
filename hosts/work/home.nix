@@ -40,7 +40,6 @@
 
   home.packages = with pkgs; [
     kubectl
-    azure-cli
     kubectx  # provides both kubectx and kubens
     kubelogin
     stern      # aggregated pod log tailing

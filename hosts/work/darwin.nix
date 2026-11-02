@@ -31,6 +31,7 @@
       "hashicorp/tap/terraform"
     ];
     casks = [
+      "azure-cli"
       "signal"
       "postman"
       "dbeaver-community"
