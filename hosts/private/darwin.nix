@@ -15,6 +15,7 @@
     };
     casks = [
       "signal"
+      "docker-desktop" # includes docker CLI and docker compose
     ];
   };
 }
