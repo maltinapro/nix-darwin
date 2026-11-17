@@ -5,6 +5,14 @@
   system.primaryUser = "maltinabasse";
   users.users.maltinabasse.home = "/Users/maltinabasse";
 
+  environment.systemPackages = with pkgs; [
+    gnumake
+    rustc
+    cargo
+    nodejs
+    kubernetes-helm
+  ];
+
   homebrew = {
     enable = true;
     onActivation = {
