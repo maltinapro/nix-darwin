@@ -7,8 +7,6 @@
 
   environment.systemPackages = with pkgs; [
     gnumake
-    rustc
-    cargo
     nodejs
     kubernetes-helm
   ];
