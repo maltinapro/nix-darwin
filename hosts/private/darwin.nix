@@ -1,9 +1,16 @@
+{ pkgs, ... }:
 {
   networking.hostName      = "mac-mini-maltina";
   networking.localHostName = "mac-mini-maltina";
 
   system.primaryUser = "maltinabasse";
   users.users.maltinabasse.home = "/Users/maltinabasse";
+
+  environment.systemPackages = with pkgs; [
+    gnumake
+    nodejs
+    kubernetes-helm
+  ];
 
   homebrew = {
     enable = true;
